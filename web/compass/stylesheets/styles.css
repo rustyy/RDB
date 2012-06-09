@@ -1,11 +1,11 @@
-/* line 2, ../sass/styles.scss */
+/* line 25, ../sass/styles.scss */
 body {
   background: #cdcdcd;
   margin: 0;
   padding: 0;
 }
 
-/* line 9, ../sass/styles.scss */
+/* line 32, ../sass/styles.scss */
 #page {
   background: #FFF;
   margin: 0 auto;
@@ -13,28 +13,41 @@ body {
   width: 960px;
 }
 
-/* line 18, ../sass/styles.scss */
+/* line 41, ../sass/styles.scss */
 #content {
   float: left;
   width: 700px;
 }
 
-/* line 23, ../sass/styles.scss */
+/* line 46, ../sass/styles.scss */
 #sidebar {
   float: right;
   width: 240px;
 }
 
-/* line 28, ../sass/styles.scss */
+/* line 51, ../sass/styles.scss */
 #footer {
   clear: both;
 }
 
-/* line 35, ../sass/styles.scss */
+/* line 58, ../sass/styles.scss */
 .products .even td {
   background: #cdcdcd;
 }
-/* line 39, ../sass/styles.scss */
+/* line 62, ../sass/styles.scss */
 .products td {
   padding: 10px;
+}
+
+/* line 72, ../sass/styles.scss */
+.to-cart {
+  background: url('../images/fixed-sd02c2de160.png') 0 -61px no-repeat;
+  display: block;
+  height: 31px;
+  text-indent: -9999em;
+  width: 30px;
+}
+/* line 14, ../sass/styles.scss */
+.to-cart:hover {
+  background-position: 0 0;
 }

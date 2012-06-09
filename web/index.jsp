@@ -4,7 +4,7 @@
     Author     : fhofmann
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*" %>
+<%@page session="true" contentType="text/html" pageEncoding="UTF-8" import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -17,7 +17,6 @@
     <div id="page">
       <div id="header"></div>
       <div id="content">
-
 
         <%
           // Get the database driver.
@@ -35,17 +34,17 @@
             // Get all products from the database.
             ResultSet rs = st.executeQuery("select * from product");
 
-
             // All Products to be displayed inside an html-table.
             out.write("<table class=\"products\">");
             out.write("<thead>");
             out.write("<tr>");
+            out.write("<th>Artikelnummer</th>");
             out.write("<th>Name</th>");
             out.write("<th>Hersteller</th>");
             out.write("<th>Preis</th>");
             out.write("<th></th>");
             out.write("</tr>");
-            
+
             out.write("</thead>");
             out.write("<tbody>");
 
@@ -62,11 +61,14 @@
               String pName = rs.getString("name");
               String pManufacturer = rs.getString("producer_name");
               String pPrice = rs.getString("price");
+              String pId = rs.getString("product_id");
 
               out.write("<tr class=\"" + zebra + "\">");
+              out.write("<td class=\"pid\">" + pId + "</td>");
               out.write("<td class=\"name\">" + pName + "</td>");
               out.write("<td class=\"manufacturer\">" + pManufacturer + "</td>");
               out.write("<td class=\"price\">" + pPrice + "</td>");
+              out.write("<td class=\"add-to-cart\"><a title=\"Zum Warenkorb hinzufügen\" class=\"to-cart\" href=\"cart.jsp?pid=" + pId + "\">In den Warenkorb</a></td>");
               out.write("</tr>");
 
               i++;
@@ -80,19 +82,15 @@
             out.println("! MYSQL Exception: " + e.getMessage());
           }
 
-
-
-
-
-
-
-
-
-
         %>
 
       </div>
-      <div id="sidebar"></div>
+      <div id="sidebar">
+
+        <%@ include file="cart-sidebar.jsp" %>
+
+
+      </div>
       <div id="footer"></div>
 
 

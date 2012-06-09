@@ -1,3 +1,26 @@
+// some Mixins
+
+
+
+
+////
+// sprites for fixed elements
+$icons: sprite-map("fixed/*.png", $spacing: 30px);
+// This is a custom mixin for the fixe-elements-sprite.
+// Use this instead of the build-in compass mixins.
+@mixin sprite-icons($icon, $hover: false, $offset-x: 0, $offset-y: 0) {
+  background: sprite($icons, $icon, $offset-x, $offset-y) no-repeat;
+  @if $hover {
+    &:hover {
+      background-position: sprite-position($icons, #{$icon}_hover, $offset-x, $offset-y);
+    }
+  }
+}
+
+
+
+
+
 // Layout definitions.
 body {
   
@@ -37,11 +60,19 @@ body {
   }
   
   td {
-      padding: 10px;
-      }
-      
-      
+    padding: 10px;
+  }
+  
+  
   .name {}
   .manufacturer {}
   .price {}
+}
+
+.to-cart {
+  @include sprite-icons(to-cart, $hover: true);
+  display: block;
+  height: image-height(sprite-file($icons, to-cart));
+  text-indent: -9999em;
+  width: image-width(sprite-file($icons, to-cart));
 }

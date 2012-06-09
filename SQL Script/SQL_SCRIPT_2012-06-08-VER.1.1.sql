@@ -33,10 +33,10 @@ ENGINE = InnoDB;
 -- Table `rdbshop`.`order`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `rdbshop`.`order` (
-  `order_id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `customer_id` INT UNSIGNED NOT NULL ,
-  `date` DATETIME NOT NULL ,
-  `payment_id` INT UNSIGNED NOT NULL ,
+  `order_id` INT UNSIGNED NULL AUTO_INCREMENT ,
+  `customer_id` INT UNSIGNED NULL ,
+  `date` DATETIME NULL ,
+  `payment_id` INT UNSIGNED NULL ,
   PRIMARY KEY (`order_id`, `customer_id`, `payment_id`) ,
   INDEX `fk_customer_id` (`customer_id` ASC) ,
   INDEX `fk_payment_id` (`payment_id` ASC) ,
@@ -58,9 +58,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `rdbshop`.`orderitem` (
   `amount` VARCHAR(45) NULL DEFAULT '1' ,
-  `product_id` INT UNSIGNED NOT NULL ,
-  `order_id` INT UNSIGNED NOT NULL ,
-  `session` VARCHAR(45) NOT NULL ,
+  `product_id` INT UNSIGNED NULL ,
+  `order_id` INT UNSIGNED NULL ,
+  `session` VARCHAR(45) NULL ,
   PRIMARY KEY (`product_id`, `order_id`) ,
   INDEX `fk_order_id` (`order_id` ASC) ,
   CONSTRAINT `fk_order_id`
@@ -108,8 +108,8 @@ CREATE  TABLE IF NOT EXISTS `rdbshop`.`product` (
   CONSTRAINT `fk_orderitem`
     FOREIGN KEY (`product_id` )
     REFERENCES `rdbshop`.`orderitem` (`product_id` )
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_producer_name`
     FOREIGN KEY (`producer_name` )
     REFERENCES `rdbshop`.`producer` (`producer_name` )

@@ -1,13 +1,13 @@
 <%-- 
-    Document   : cart
-    Created on : 09.06.2012, 17:23:46
+    Document   : order
+    Created on : 09.06.2012, 20:39:11
     Author     : fhofmann
 --%>
 
 <%@page import="java.util.Enumeration"%>
-<%@page import="java.sql.*"%>
-<%@page session="true" contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*" %>
+<%@page session="true" %>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,12 +18,39 @@
   <body>
     <div id="page">
       <div id="header">
-        <a href="index.jsp"><img src="files/logo.png" /></a>
+        <a href="index.jsp"><img src="files/logo.png" /></a>  
       </div>
       <div id="content">
+        <h1>Bestellen</h1>
 
 
-    <%
+        
+        <form class="form-order">
+          <h2>Bestellungspositionen</h2>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <%
       // Get the database driver.
       try {
         Class.forName("org.gjt.mm.mysql.Driver");
@@ -32,24 +59,6 @@
       }
 
       out.write("<div class=\"shopping-cart\">");
-      // Check if pid-parameter is set.
-      if (request.getParameter("pid") != null) {
-        String pid = request.getParameter("pid");
-        // Check if there is already a pid is set in session-object.
-        if (session.getAttribute(pid) != null) {
-          // If so, we have to add one more product to the session.
-          Object sessionPID = session.getAttribute(pid);
-          int intPID = (Integer) sessionPID;
-          intPID++;
-          session.setAttribute(pid, intPID);
-        } else {
-          // Else we set the productid to one.
-          session.setAttribute(pid, 1);
-        }
-        out.write("<div class=\"message success\">Produkt wurde dem Warenkorb hinzugefügt.</div>");
-      }
-
-
       /**
        * *****
        * Output Shopping-cart. *****
@@ -91,13 +100,13 @@
             pPriceOverall = (Integer) value * Integer.parseInt(pPrice);
             finalPrice += pPriceOverall;
 
-            out.write("<td class=\"pid\">" + pId + "</td>");
+            out.write("<td class=\"pid\">" + pId + "<input name=\"pid\" type=\"hidden\" value=\"" + pId + "\" /></td>");
             out.write("<td class=\"name\">" + pName + "</td>");
             out.write("<td class=\"manufacturer\">" + pManufacturer + "</td>");
             out.write("<td class=\"price\">" + pPrice + "</td>");
 
           }
-          out.write("<td>" + value + "</td>");
+          out.write("<td>" + value + "<input name=\"pamount\" type=\"hidden\" value=\"" + value + "\" /></td>");
           out.write("</tr>");
         }
         out.write("<tr>");
@@ -114,26 +123,63 @@
       } catch (Exception e) {
         out.println("! MYSQL Exception: " + e.getMessage());
       }
-      out.write("<a href=\"index.jsp\">Zurück zur Produktliste</a>");
-      out.write("<a href=\"order.jsp\">Bestellen</a>");
       out.write("</div>");
 
     %>
-    
-    
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          <h2>Ihre Adressdaten</h2>
+          <div>
+            <label for="firstname">Vorname</label>
+            <input type="text" name="firstname" />
           </div>
-      <div id="sidebar">
+          <div>
+            <label for="firstname">Nachname</label>
+            <input type="text" name="lastname" /> 
+          </div>
+          <div>
+            <label for="firstname">Straße</label>
+            <input type="text" name="street" />
+          </div>
+          <div>
+            <label for="firstname">PLZ</label>
+            <input type="text" name="zip" />
+          </div>
+          <div>
+            <label for="firstname">Stadt</label>
+            <input type="text" name="city" />      
+          </div>
+          
+          <h2>Zahlungsmethode</h2>
+          
+          
+          
+          <input type="submit" value="Bestellung abschicken" />
+          
+          
+        </form>
 
+      </div>
+      <div id="sidebar">
       </div>
       <div id="footer"></div>
 
 
 
-    </div>
 
-    
-    
-    
-    
   </body>
 </html>

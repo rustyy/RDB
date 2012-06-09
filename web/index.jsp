@@ -16,9 +16,11 @@
   <body>
 
     <div id="page">
-      <div id="header"></div>
+      <div id="header">
+        <a href="index.jsp"><img src="files/logo.png" /></a>
+      </div>
       <div id="content">
-
+        <h1>Produktübersicht</h1>
         <%
           // Get the database driver.
           try {

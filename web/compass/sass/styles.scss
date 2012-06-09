@@ -23,7 +23,7 @@ $icons: sprite-map("fixed/*.png", $spacing: 30px);
 
 // Layout definitions.
 body {
-  background: #cdcdcd;
+  background: #c20900;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: 300;
@@ -59,7 +59,7 @@ body {
 .products {
   width: 100%;
   .even td {
-    background: #cdcdcd;
+    background: #f2f2f2;
   }
   
   td {
@@ -69,12 +69,20 @@ body {
   
   .name {}
   .manufacturer {}
-  .price {}
+  
+  .pid,
+  .price {
+    text-align: right;
+  }
+  
+  .add-to-cart {
+    text-align: center;
+  }
 }
 
 .to-cart {
   @include sprite-icons(to-cart, $hover: true);
-  display: block;
+  display: inline-block;
   height: image-height(sprite-file($icons, to-cart));
   text-indent: -9999em;
   width: image-width(sprite-file($icons, to-cart));
@@ -88,6 +96,34 @@ body {
   &.success {
     background: #4ce600;
     border-color: #329900;
+  }
+  
+}
+
+
+// Order-form.
+.form-order {
+  label,
+  input[type=text] {
+    display: inline-block;
+  }
+  
+  label {
+    width: 20%;
+  }
+  
+  input[type=text] {
+    border: 2px dashed #f2f2f2;
+    width: 75%;
+    
+    &:focus {
+      background: #f2f2f2;
+    }
+  }
+  
+  div {
+    margin-bottom: 20px;
+    overflow: hidden;
   }
   
 }

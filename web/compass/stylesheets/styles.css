@@ -1,6 +1,6 @@
 /* line 25, ../sass/styles.scss */
 body {
-  background: #cdcdcd;
+  background: #c20900;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: 300;
@@ -39,17 +39,26 @@ body {
 }
 /* line 61, ../sass/styles.scss */
 .products .even td {
-  background: #cdcdcd;
+  background: #f2f2f2;
 }
 /* line 65, ../sass/styles.scss */
 .products td {
   padding: 10px;
 }
+/* line 74, ../sass/styles.scss */
+.products .pid,
+.products .price {
+  text-align: right;
+}
+/* line 78, ../sass/styles.scss */
+.products .add-to-cart {
+  text-align: center;
+}
 
-/* line 75, ../sass/styles.scss */
+/* line 83, ../sass/styles.scss */
 .to-cart {
   background: url('../images/fixed-sd02c2de160.png') 0 -61px no-repeat;
-  display: block;
+  display: inline-block;
   height: 31px;
   text-indent: -9999em;
   width: 30px;
@@ -59,14 +68,38 @@ body {
   background-position: 0 0;
 }
 
-/* line 83, ../sass/styles.scss */
+/* line 91, ../sass/styles.scss */
 .message {
   border: 5px dashed;
   font-weight: 600;
   padding: 10px;
 }
-/* line 88, ../sass/styles.scss */
+/* line 96, ../sass/styles.scss */
 .message.success {
   background: #4ce600;
   border-color: #329900;
+}
+
+/* line 107, ../sass/styles.scss */
+.form-order label,
+.form-order input[type=text] {
+  display: inline-block;
+}
+/* line 111, ../sass/styles.scss */
+.form-order label {
+  width: 20%;
+}
+/* line 115, ../sass/styles.scss */
+.form-order input[type=text] {
+  border: 2px dashed #f2f2f2;
+  width: 75%;
+}
+/* line 119, ../sass/styles.scss */
+.form-order input[type=text]:focus {
+  background: #f2f2f2;
+}
+/* line 124, ../sass/styles.scss */
+.form-order div {
+  margin-bottom: 20px;
+  overflow: hidden;
 }

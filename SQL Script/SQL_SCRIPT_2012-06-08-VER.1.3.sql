@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 09. Juni 2012 um 13:32
+-- Erstellungszeit: 09. Juni 2012 um 23:43
 -- Server Version: 5.5.9
 -- PHP-Version: 5.3.6
 
@@ -96,21 +96,22 @@ INSERT INTO `manufactura` VALUES('Sony', NULL);
 CREATE TABLE `order` (
   `order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `customer_id` int(10) unsigned NOT NULL DEFAULT '0',
-  `date` datetime DEFAULT NULL,
+  `date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `payment_id` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`order_id`,`customer_id`,`payment_id`),
   KEY `fk_customer_id` (`customer_id`),
   KEY `fk_payment_id` (`payment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Daten für Tabelle `order`
 --
 
-INSERT INTO `order` VALUES(1, 1, '2012-06-09 13:31:35', 1);
-INSERT INTO `order` VALUES(2, 2, '2012-06-09 13:31:38', 2);
-INSERT INTO `order` VALUES(3, 1, '2012-06-09 13:31:41', 2);
-INSERT INTO `order` VALUES(4, 3, '2012-06-09 13:31:45', 3);
+INSERT INTO `order` VALUES(1, 1, '2012-06-09 23:39:51', 1);
+INSERT INTO `order` VALUES(2, 2, '2012-06-09 23:40:21', 2);
+INSERT INTO `order` VALUES(3, 1, '2012-06-09 23:39:52', 2);
+INSERT INTO `order` VALUES(4, 3, '2012-06-09 23:39:52', 3);
+INSERT INTO `order` VALUES(5, 2, '2012-06-09 23:41:39', 4);
 
 -- --------------------------------------------------------
 

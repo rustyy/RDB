@@ -1,0 +1,47 @@
+// Layout definitions.
+body {
+  
+  background: #cdcdcd;
+  margin: 0;
+  padding: 0;
+}
+
+#page {
+  background: #FFF;
+  margin: 0 auto;
+  padding: 20px;
+  width: 960px;
+}
+
+#header {}
+
+#content {
+  float: left;
+  width: 700px;
+}
+
+#sidebar {
+  float: right;
+  width: 240px;
+}
+
+#footer {
+  clear: both;
+}
+
+
+// Product
+.products {
+  .even td {
+    background: #cdcdcd;
+  }
+  
+  td {
+      padding: 10px;
+      }
+      
+      
+  .name {}
+  .manufacturer {}
+  .price {}
+}

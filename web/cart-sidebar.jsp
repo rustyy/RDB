@@ -30,9 +30,7 @@
         out.write("<table class=\"products\">");
         out.write("<thead>");
         out.write("<tr>");
-        out.write("<th>Artikelnummer</th>");
         out.write("<th>Name</th>");
-        out.write("<th>Hersteller</th>");
         out.write("<th>Preis</th>");
         out.write("<th>Menge</th>");
         out.write("</tr>");
@@ -44,32 +42,26 @@
         while (names.hasMoreElements()) {
           String key = (String) names.nextElement();
           Object value = session.getAttribute(key);
-          ResultSet rs = st.executeQuery("select * from product WHERE product_id='" + key + "'");
+          ResultSet rs = st.executeQuery("select name, price from product WHERE product_id='" + key + "'");
 
           out.write("<tr class=\"\">");
 
           while (rs.next()) {
             int pPriceOverall = 0;
             String pName = rs.getString("name");
-            String pManufacturer = rs.getString("producer_name");
             String pPrice = rs.getString("price");
-
-            String pId = rs.getString("product_id");
 
             pPriceOverall = (Integer) value * Integer.parseInt(pPrice);
             finalPrice += pPriceOverall;
-
-            out.write("<td class=\"pid\">" + pId + "</td>");
-            out.write("<td class=\"name\">" + pName + "</td>");
-            out.write("<td class=\"manufacturer\">" + pManufacturer + "</td>");
+            
+            out.write("<td class=\"name\">" + pName + "</td>");            
             out.write("<td class=\"price\">" + pPrice + "</td>");
-
           }
           out.write("<td>" + value + "</td>");
           out.write("</tr>");
         }
         out.write("<tr>");
-        out.write("<td colspan=\"3\">Gesamtsumme</td>");
+        out.write("<td>Gesamtsumme</td>");
         out.write("<td>" + finalPrice + "</td>");
         out.write("<td></td>");
         out.write("</tr>");

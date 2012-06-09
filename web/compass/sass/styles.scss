@@ -23,8 +23,10 @@ $icons: sprite-map("fixed/*.png", $spacing: 30px);
 
 // Layout definitions.
 body {
-  
   background: #cdcdcd;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
   margin: 0;
   padding: 0;
 }
@@ -55,6 +57,7 @@ body {
 
 // Product
 .products {
+  width: 100%;
   .even td {
     background: #cdcdcd;
   }
@@ -75,4 +78,16 @@ body {
   height: image-height(sprite-file($icons, to-cart));
   text-indent: -9999em;
   width: image-width(sprite-file($icons, to-cart));
+}
+
+.message {
+  border: 5px dashed;
+  font-weight: 600;
+  padding: 10px;
+  
+  &.success {
+    background: #4ce600;
+    border-color: #329900;
+  }
+  
 }

@@ -1,11 +1,14 @@
 /* line 25, ../sass/styles.scss */
 body {
   background: #cdcdcd;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
   margin: 0;
   padding: 0;
 }
 
-/* line 32, ../sass/styles.scss */
+/* line 34, ../sass/styles.scss */
 #page {
   background: #FFF;
   margin: 0 auto;
@@ -13,33 +16,37 @@ body {
   width: 960px;
 }
 
-/* line 41, ../sass/styles.scss */
+/* line 43, ../sass/styles.scss */
 #content {
   float: left;
   width: 700px;
 }
 
-/* line 46, ../sass/styles.scss */
+/* line 48, ../sass/styles.scss */
 #sidebar {
   float: right;
   width: 240px;
 }
 
-/* line 51, ../sass/styles.scss */
+/* line 53, ../sass/styles.scss */
 #footer {
   clear: both;
 }
 
-/* line 58, ../sass/styles.scss */
+/* line 59, ../sass/styles.scss */
+.products {
+  width: 100%;
+}
+/* line 61, ../sass/styles.scss */
 .products .even td {
   background: #cdcdcd;
 }
-/* line 62, ../sass/styles.scss */
+/* line 65, ../sass/styles.scss */
 .products td {
   padding: 10px;
 }
 
-/* line 72, ../sass/styles.scss */
+/* line 75, ../sass/styles.scss */
 .to-cart {
   background: url('../images/fixed-sd02c2de160.png') 0 -61px no-repeat;
   display: block;
@@ -50,4 +57,16 @@ body {
 /* line 14, ../sass/styles.scss */
 .to-cart:hover {
   background-position: 0 0;
+}
+
+/* line 83, ../sass/styles.scss */
+.message {
+  border: 5px dashed;
+  font-weight: 600;
+  padding: 10px;
+}
+/* line 88, ../sass/styles.scss */
+.message.success {
+  background: #4ce600;
+  border-color: #329900;
 }

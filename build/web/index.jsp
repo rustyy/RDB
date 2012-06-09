@@ -9,7 +9,8 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
+    <title>RDBSHOP</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="compass/stylesheets/styles.css" />
   </head>
   <body>
@@ -17,18 +18,13 @@
     <div id="page">
       <div id="header"></div>
       <div id="content">
-        
-        
-        
-        
 
         <%
           // Get the database driver.
           try {
             Class.forName("org.gjt.mm.mysql.Driver");
-            out.println("DB-Treiber da!");
           } catch (ClassNotFoundException e) {
-            out.println("DB-Treiber nicht da!");
+            out.println("<div class=\"message error\">Driver is missing!</div>");
           }
 
           try {
@@ -48,7 +44,7 @@
             out.write("<th>Preis</th>");
             out.write("<th></th>");
             out.write("</tr>");
-            
+
             out.write("</thead>");
             out.write("<tbody>");
 
@@ -86,23 +82,14 @@
             out.println("! MYSQL Exception: " + e.getMessage());
           }
 
-
-
-
-
-
-
-
-
-
         %>
 
       </div>
       <div id="sidebar">
-        
+
         <%@ include file="cart-sidebar.jsp" %>
-        
-        
+
+
       </div>
       <div id="footer"></div>
 

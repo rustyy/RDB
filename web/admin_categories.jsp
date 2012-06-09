@@ -1,15 +1,16 @@
 <%-- 
-    Document   : index
-    Created on : 10.06.2012, 19:01:34
-    Author     : Eugen Waldschmidt
+    Document   : admin_products
+    Created on : 09.06.2012, 21:12:19
+    Author     : ewaldschmidt
 --%>
 
+<%@page import="com.sun.crypto.provider.RSACipher"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
+    <title>Produktübersicht</title>
     <link rel="stylesheet" type="text/css" href="compass/stylesheets/styles.css" />
   </head>
   <body>
@@ -26,44 +27,6 @@
       %>
       <div id="header"></div>
       <div id="content">
-
-        <form action="admin_add_category.jsp" method="get">
-          <p>Name*</p>
-          <input type="text" name="name">
-          <p>Description</p>
-          <input type="text" name="description">
-          <input type="submit" value="Insert">
-        </form>
-        <%
-          //Variables, which getting from form.
-          String name = request.getParameter("name");
-          String description = request.getParameter("description");
-
-          int updateQuery = 0;
-
-          //Checking whether variables are setting.
-          if (name != null) {
-
-            try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
-              Statement st = con.createStatement();
-              String queryString = "INSERT INTO category(category_name, description) VALUES ('"+name+"', '"+description+"')";
-              updateQuery = st.executeUpdate(queryString);
-              if (updateQuery != 0) {
-                out.write("Der Eintrag war Erfolgreich!");
-              }
-              //ResultSet rs = st.executeQuery(queryString);
-              st.close();
-              con.close();
-            } catch (Exception e) {
-              out.println("! MYSQL Exception: " + e.getMessage());
-            }
-          }
-
-        %>
-
-      </div>
-      <div id="sidebar">
         <%
           try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
@@ -73,7 +36,7 @@
             ResultSet rs = st.executeQuery("select * from category");
 
             // All Products to be displayed inside an html-table.
-            out.write("<table class=\"\">");
+            out.write("<table class=\"products\">");
             out.write("<thead>");
             out.write("<tr>");
             out.write("<th>Name</th>");
@@ -82,6 +45,7 @@
 
             out.write("</thead>");
             out.write("<tbody>");
+            // Product attributes.  
 
             int i = 1;
             while (rs.next()) {
@@ -92,26 +56,56 @@
               } else {
                 zebra = "odd";
               }
-              // Product attributes.  
-              String cname = rs.getString("category_name");
-              String cdescription = rs.getString("description");
-
+              String name = rs.getString("category_name");
+              String description = rs.getString("description");
+              
+              out.write("<form action=\"admin_categories.jsp\" method=\"get\">");
               out.write("<tr class=\"" + zebra + "\">");
-              out.write("<td class=\"name\">" + cname + "</td>");
-              out.write("<td class=\"pid\">" + cdescription + "</td>");
+              out.write("<td class=\"pid\">" + name + "<input name=\"cname\" type=\"hidden\" value=\"" + name + "\" /></td>");
+              out.write("<td class=\"name\">" + description + "</td>");
+              out.write("<td class=\"\"><input type=\"submit\" name=\"Delete\" value=\"Delete\"></td>");
+              out.write("</form>");
               out.write("</tr>");
 
               i++;
             }
+            
             out.write("</tbody>");
             out.write("</table>"); // /END Producttable.
-            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"\" href=\"admin_categories.jsp\">Zur Kategorie-Ansicht</a>");
+
             st.close();
             con.close();
           } catch (Exception e) {
             out.println("! MYSQL Exception: " + e.getMessage());
           }
+
+          //Variables, which getting from form.
+          String cname = request.getParameter("cname");
+
+          int updateQuery = 0;
+
+          //Checking whether variables are setting.
+          if (cname != null) {
+
+            try {
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
+              Statement st = con.createStatement();
+              String queryString = "delete from category where category_name = '" + cname + "';";
+              updateQuery = st.executeUpdate(queryString);
+              if (updateQuery != 0) {
+                //out.write("Eintrag erfolgreich entfernt");
+                response.addHeader("Refresh","1");
+              }
+              //ResultSet rs = st.executeQuery(queryString);
+              st.close();
+              con.close();
+            } catch (Exception e) {
+              out.println("! MYSQL Exception: " + e.getMessage());
+            }
+          }
         %>
+      </div>
+      <div id="sidebar">
       </div>
       <div id="footer"></div>
     </div>

@@ -27,7 +27,7 @@
       <div id="header"></div>
       <div id="content">
 
-        <form action="admin_add_category.jsp" method="get">
+        <form action="admin_add_manufactura.jsp" method="get">
           <p>Name*</p>
           <input type="text" name="name">
           <p>Description</p>
@@ -47,7 +47,7 @@
             try {
               Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
               Statement st = con.createStatement();
-              String queryString = "INSERT INTO category(category_name, description) VALUES ('"+name+"', '"+description+"')";
+              String queryString = "INSERT INTO manufactura(producer_name, description) VALUES ('"+name+"', '"+description+"')";
               updateQuery = st.executeUpdate(queryString);
               if (updateQuery != 0) {
                 out.write("Der Eintrag war Erfolgreich!");
@@ -70,7 +70,7 @@
             Statement st = con.createStatement();
 
             // Get all products from the database.
-            ResultSet rs = st.executeQuery("select * from category");
+            ResultSet rs = st.executeQuery("select * from manufactura");
 
             // All Products to be displayed inside an html-table.
             out.write("<table class=\"\">");
@@ -93,7 +93,7 @@
                 zebra = "odd";
               }
               // Product attributes.  
-              String cname = rs.getString("category_name");
+              String cname = rs.getString("producer_name");
               String cdescription = rs.getString("description");
 
               out.write("<tr class=\"" + zebra + "\">");

@@ -27,17 +27,14 @@
       <div id="header"></div>
       <div id="content">
 
-        <form action="admin_add_category.jsp" method="get">
+        <form action="admin_add_payment.jsp" method="get">
           <p>Name*</p>
           <input type="text" name="name">
-          <p>Description</p>
-          <input type="text" name="description">
           <input type="submit" value="Insert">
         </form>
         <%
           //Variables, which getting from form.
           String name = request.getParameter("name");
-          String description = request.getParameter("description");
 
           int updateQuery = 0;
 
@@ -45,9 +42,9 @@
           if (name != null) {
 
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
               Statement st = con.createStatement();
-              String queryString = "INSERT INTO category(category_name, description) VALUES ('"+name+"', '"+description+"')";
+              String queryString = "INSERT INTO payment(service) VALUES ('"+name+"')";
               updateQuery = st.executeUpdate(queryString);
               if (updateQuery != 0) {
                 out.write("Der Eintrag war Erfolgreich!");
@@ -66,18 +63,17 @@
       <div id="sidebar">
         <%
           try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
             Statement st = con.createStatement();
 
             // Get all products from the database.
-            ResultSet rs = st.executeQuery("select * from category");
+            ResultSet rs = st.executeQuery("select * from payment");
 
             // All Products to be displayed inside an html-table.
             out.write("<table class=\"\">");
             out.write("<thead>");
             out.write("<tr>");
             out.write("<th>Name</th>");
-            out.write("<th>Description</th>");
             out.write("</tr>");
 
             out.write("</thead>");
@@ -93,19 +89,17 @@
                 zebra = "odd";
               }
               // Product attributes.  
-              String cname = rs.getString("category_name");
-              String cdescription = rs.getString("description");
+              String cname = rs.getString("service");
 
               out.write("<tr class=\"" + zebra + "\">");
               out.write("<td class=\"name\">" + cname + "</td>");
-              out.write("<td class=\"pid\">" + cdescription + "</td>");
               out.write("</tr>");
 
               i++;
             }
             out.write("</tbody>");
             out.write("</table>"); // /END Producttable.
-            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"\" href=\"admin_categories.jsp\">Zur Kategorie-Ansicht</a>");
+            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"\" href=\"admin_payments.jsp\">Zur Kategorie-Ansicht</a>");
             st.close();
             con.close();
           } catch (Exception e) {

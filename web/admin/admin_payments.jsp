@@ -29,18 +29,17 @@
       <div id="content">
         <%
           try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
             Statement st = con.createStatement();
 
             // Get all products from the database.
-            ResultSet rs = st.executeQuery("select * from category");
+            ResultSet rs = st.executeQuery("select * from payment");
 
             // All Products to be displayed inside an html-table.
             out.write("<table class=\"products\">");
             out.write("<thead>");
             out.write("<tr>");
             out.write("<th>Name</th>");
-            out.write("<th>Description</th>");
             out.write("</tr>");
 
             out.write("</thead>");
@@ -56,13 +55,11 @@
               } else {
                 zebra = "odd";
               }
-              String name = rs.getString("category_name");
-              String description = rs.getString("description");
+              String name = rs.getString("service");
               
-              out.write("<form action=\"admin_categories.jsp\" method=\"get\">");
+              out.write("<form action=\"admin_payments.jsp\" method=\"get\">");
               out.write("<tr class=\"" + zebra + "\">");
               out.write("<td class=\"pid\">" + name + "<input name=\"cname\" type=\"hidden\" value=\"" + name + "\" /></td>");
-              out.write("<td class=\"name\">" + description + "</td>");
               out.write("<td class=\"\"><input type=\"submit\" name=\"Delete\" value=\"Delete\"></td>");
               out.write("</form>");
               out.write("</tr>");
@@ -80,17 +77,17 @@
           }
 
           //Variables, which getting from form.
-          String cname = request.getParameter("cname");
+          String pname = request.getParameter("cname");
 
           int updateQuery = 0;
 
           //Checking whether variables are setting.
-          if (cname != null) {
+          if (pname != null) {
 
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
               Statement st = con.createStatement();
-              String queryString = "delete from category where category_name = '" + cname + "';";
+              String queryString = "delete from payment where service = '" + pname + "';";
               updateQuery = st.executeUpdate(queryString);
               if (updateQuery != 0) {
                 //out.write("Eintrag erfolgreich entfernt");

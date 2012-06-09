@@ -29,7 +29,7 @@
       <div id="content">
         <%
           try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
             Statement st = con.createStatement();
 
             // Get all products from the database.
@@ -95,7 +95,7 @@
             int pid = Integer.parseInt(get_pid);
 
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
               Statement st = con.createStatement();
               String queryString = "delete from product where product_id = " + pid + ";";
               updateQuery = st.executeUpdate(queryString);

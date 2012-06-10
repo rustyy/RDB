@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cart
-    Created on : 09.06.2012, 17:23:46
-    Author     : fhofmann
+    @Document   : cart-sidebar.inc
+    @Author     : Felix Hofmann - 2022833
+    @file       : This file creates the shopping-cart showing up in sidebar.
 --%>
 
 <%@page import="java.util.Enumeration"%>

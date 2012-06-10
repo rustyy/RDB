@@ -3,12 +3,7 @@
   border-collapse: collapse;
   width: 100%;
   
-  &.negative {
-    color: #FFF;
-  }
-  
-  
-  
+  &.negative { color: #FFF; }  
   
   td { padding: 10px; }
   
@@ -21,15 +16,13 @@
   .overall {
     font-weight: 600;
     text-align: right;
-    td { border-top: 2px solid $red;}
-    
+    td { border-top: 2px solid $red;}    
   }
   
   &.negative .overall {
     td { border-top: 2px solid #FFF;}
   }
-  
-  
+
   .pid,
   .price { text-align: right; }
   
@@ -41,6 +34,11 @@
     height: image-height(sprite-file($icons, to-cart));
     text-indent: -9999em;
     width: image-width(sprite-file($icons, to-cart));
+  }
+  
+  tr:hover td {
+    background: #ddd !important;
+    color: $black;
   }
 }
 

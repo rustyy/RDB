@@ -2,18 +2,32 @@
 
 // Layout definitions.
 body {
+  background: url(../images/bg-body.gif) repeat fixed left top;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   font-weight: 300;
+  color: $black;
   margin: 0;
   padding: 0;
+}
+
+#stripe {
+  background: $red;
+  position: fixed;
+  top: 100px;
+  height: 100px;
+  width: 100%;
+  z-index: 1;
 }
 
 #page {
   background: #FFF;
   margin: 0 auto;
+  margin-top: 20px;
   padding: 20px;
+  position: relative;
   width: 960px;
+  z-index: 2;
 }
 
 #header {

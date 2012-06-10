@@ -47,6 +47,7 @@
 
   </head>
   <body>
+    <div id="stripe"></div>
     <div id="page">
       <div id="header">
         <a href="index.jsp"><img src="files/logo.png" /></a>

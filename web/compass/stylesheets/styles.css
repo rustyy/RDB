@@ -218,3 +218,8 @@ body {
 .products .to-cart:hover {
   background-position: 0 0;
 }
+
+/* line 1, ../sass/_shopping-cart.scss */
+#sidebar .shopping-cart {
+  color: #FFF;
+}

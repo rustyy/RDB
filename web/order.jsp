@@ -1,7 +1,7 @@
 <%-- 
-    Document   : order
-    Created on : 09.06.2012, 20:39:11
-    Author     : fhofmann
+    @Document   : cart-sidebar.inc
+    @Author     : Felix Hofmann - 2022833
+    @file       : This file creates the order page.
 --%>
 
 <%@page import="java.util.Enumeration"%>
@@ -69,8 +69,6 @@
           }
 
           i++;
-
-
           out.write("<tr class=\"" + zebra + "\">");
 
           while (rs.next()) {
@@ -167,106 +165,102 @@
   </div>
 
   <%
-    // All variables from form.
-    String firstName = request.getParameter("firstname");
-    String lastName = request.getParameter("lastname");
-    String street = request.getParameter("street");
-    String zip = request.getParameter("zip");
-    String location = request.getParameter("city");
-    int paymentID = Integer.parseInt(request.getParameter("paymentID"));
-    int customerID = 0;
-    int orderID = 0;
+      // All variables from form.
+      String firstName = request.getParameter("firstname");
+      String lastName = request.getParameter("lastname");
+      String street = request.getParameter("street");
+      String zip = request.getParameter("zip");
+      String location = request.getParameter("city");
+      int paymentID = Integer.parseInt(request.getParameter("paymentID"));
+      int customerID = 0;
+      int orderID = 0;
 
+      try {
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+        Statement st = con.createStatement();
 
+        String sqlQuery1 = "SELECT "
+                + "customer_id "
+                + "FROM "
+                + "customer "
+                + "WHERE "
+                + "firstname='" + firstName + "' "
+                + "AND lastname='" + lastName + "'"
+                + "AND street='" + street + "' "
+                + "AND zip='" + zip + "' "
+                + "AND location='" + location + "'";
 
-    try {
-      Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
-      Statement st = con.createStatement();
-
-      String sqlQuery1 = "SELECT "
-              + "customer_id "
-              + "FROM "
-              + "customer "
-              + "WHERE "
-              + "firstname='" + firstName + "' "
-              + "AND lastname='" + lastName + "'"
-              + "AND street='" + street + "' "
-              + "AND zip='" + zip + "' "
-              + "AND location='" + location + "'";
-
-      ResultSet rs = st.executeQuery(sqlQuery1);
-      // Check whether customer already exists or not, if not create a new dataset.
-      int rowCount = 0;
-      while (rs.next()) {
-        rowCount++;
-      }
-      // No customer found? Create one.
-      if (rowCount == 0) {
-        String sqlQuery2 = "INSERT INTO customer"
-                + "(firstname, lastname, street, zip, location) "
-                + "VALUES "
-                + "("
-                + "'" + firstName + "', "
-                + "'" + lastName + "', "
-                + "'" + street + "', "
-                + zip + ", "
-                + "'" + location + "'"
-                + ")";
-        st.executeUpdate(sqlQuery2);
-        // Get the customerID for the new dataset
-        rs = st.executeQuery(sqlQuery1);
+        ResultSet rs = st.executeQuery(sqlQuery1);
+        // Check whether customer already exists or not, if not create a new dataset.
+        int rowCount = 0;
         while (rs.next()) {
-          // S`ave the customerID of the new entry.
-          customerID = rs.getInt("customer_id");
+          rowCount++;
         }
-      } else {
-        rs = st.executeQuery(sqlQuery1);
+        // No customer found? Create one.
+        if (rowCount == 0) {
+          String sqlQuery2 = "INSERT INTO customer"
+                  + "(firstname, lastname, street, zip, location) "
+                  + "VALUES "
+                  + "("
+                  + "'" + firstName + "', "
+                  + "'" + lastName + "', "
+                  + "'" + street + "', "
+                  + zip + ", "
+                  + "'" + location + "'"
+                  + ")";
+          st.executeUpdate(sqlQuery2);
+          // Get the customerID for the new dataset
+          rs = st.executeQuery(sqlQuery1);
+          while (rs.next()) {
+            // S`ave the customerID of the new entry.
+            customerID = rs.getInt("customer_id");
+          }
+        } else {
+          rs = st.executeQuery(sqlQuery1);
+          while (rs.next()) {
+            // Save the customerID of existing user.
+            customerID = rs.getInt("customer_id");
+          }
+        }
+
+        // Create order.
+        String queryOrder = "INSERT INTO `order`"
+                + "(customer_id, payment_id) "
+                + "VALUES (" + customerID + ", " + paymentID + ")";
+        st.executeUpdate(queryOrder);
+
+        queryOrder = "SELECT order_id "
+                + "FROM `order` "
+                + "WHERE customer_id=" + customerID + " "
+                + "ORDER BY date DESC "
+                + "LIMIT 1";
+        rs = st.executeQuery(queryOrder);
         while (rs.next()) {
-          // Save the customerID of existing user.
-          customerID = rs.getInt("customer_id");
+          // Store orderID for current order.
+          orderID = rs.getInt("order_id");
         }
+
+        // Save order items into database.
+        Enumeration names = session.getAttributeNames();
+        while (names.hasMoreElements()) {
+          String key = (String) names.nextElement();
+          Object value = session.getAttribute(key);
+          String queryOrderItem = "INSERT INTO orderitem(product_id, order_id, amount, session)"
+                  + "VALUES (" + Integer.parseInt(key) + ", " + orderID + ", " + (Integer) value + ", '" + session.getId() + "')";
+          st.executeUpdate(queryOrderItem);
+        }
+
+        st.close();
+        con.close();
+      } catch (Exception e) {
+        out.println("! MYSQL Exception: " + e.getMessage());
       }
 
-      // Create order.
-      String queryOrder = "INSERT INTO `order`"
-              + "(customer_id, payment_id) "
-              + "VALUES (" + customerID + ", " + paymentID + ")";
-      st.executeUpdate(queryOrder);
-
-      queryOrder = "SELECT order_id "
-              + "FROM `order` "
-              + "WHERE customer_id=" + customerID + " "
-              + "ORDER BY date DESC "
-              + "LIMIT 1";
-      rs = st.executeQuery(queryOrder);
-      while (rs.next()) {
-        // Store orderID for current order.
-        orderID = rs.getInt("order_id");
-      }
-
-      // Save order items into database.
-      Enumeration names = session.getAttributeNames();
-      while (names.hasMoreElements()) {
-        String key = (String) names.nextElement();
-        Object value = session.getAttribute(key);
-        String queryOrderItem = "INSERT INTO orderitem(product_id, order_id, amount, session)"
-                + "VALUES (" + Integer.parseInt(key) + ", " + orderID + ", " + (Integer) value + ", '" + session.getId() + "')";
-        st.executeUpdate(queryOrderItem);
-      }
-
-      st.close();
-      con.close();
-    } catch (Exception e) {
-      out.println("! MYSQL Exception: " + e.getMessage());
+      // Destroy session, so shopping-cart is empty again.        
+      session.invalidate();
     }
-  %>
-  <%
-    // Destroy session, so shopping-cart is empty again.        
-    session.invalidate();
-  %>
 
-
-  <% }%>
+  %>
 
 </div>
 

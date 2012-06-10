@@ -1,7 +1,7 @@
 <%-- 
-    Document   : header.inc
-    Created on : 10.06.2012, 00:41:24
-    Author     : fhofmann
+    @Document   : header.inc
+    @Author     : Felix Hofmann - 2022833
+    @file       : template-file for HTML-header.
 --%>
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
     <script>
       $(document).ready(function(){
+        // Form validation for order.
         $(".form-order").validate({
           rules: {
             firstname: "required",
@@ -26,9 +27,7 @@
               minlength: 1,
               maxlength: 5,
               number: true
-              
             }
-            
           },
           messages: {
             firstname: "Bitte tragen Sie einen Vornamen ein",
@@ -41,7 +40,6 @@
               maxlength: "Die Postleitzahl muss exakt 5 Zeichen enthalten",
               number: "PLZ muss eine Zahl sein"
             }
-            
           }
         });
       });

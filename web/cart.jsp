@@ -1,7 +1,7 @@
 <%-- 
-    Document   : cart
-    Created on : 09.06.2012, 17:23:46
-    Author     : fhofmann
+    @Document   : cart
+    @Author     : Felix Hofmann - 2022833
+    @file       : This file creates the shopping-cart overview page.
 --%>
 
 <%@page import="java.util.Enumeration"%>
@@ -38,7 +38,6 @@
       }
       out.write("<div class=\"message success\">Produkt wurde dem Warenkorb hinzugefügt.</div>");
     }
-
 
     /**
      * *****
@@ -117,10 +116,7 @@
     out.write("<a class=\"go-further\" href=\"index.jsp\">Zurück zur Produktliste</a><br />");
     out.write("<a class=\"go-further\" href=\"order.jsp\">Bestellen</a>");
     out.write("</div>");
-
   %>
-
-
 </div>
 
 <%@ include file="includes/footer.inc.jsp" %>

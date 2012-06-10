@@ -1,14 +1,10 @@
 <%-- 
-    Document   : footer.inc
-    Created on : 10.06.2012, 00:44:06
-    Author     : fhofmann
+    @Document   : footer.inc
+    @Author     : Felix Hofmann - 2022833
+    @file       : Template-file for HTML-footer.
 --%>
 
-
-  <div id="footer">Felix Hofmann // Eugenwaldschmidt</div>
-
-
-
+   <div id="footer">&copy2012 Felix Hofmann & Eugenwaldschmidt</div>
   </div>
  </body>
 </html>

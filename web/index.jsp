@@ -1,15 +1,11 @@
 <%-- 
-    Document   : index
-    Created on : 09.06.2012, 00:27:47
-    Author     : fhofmann
+    @Document   : index
+    @Author     : Felix Hofmann - 2022833
+    @file       : This file creates the product-overview.
 --%>
 
 <%@page session="true" contentType="text/html" pageEncoding="UTF-8" import="java.sql.*" %>
-
-
 <%@ include file="includes/header.inc.jsp" %>
-
-
 
 <div id="content">
   <h1>Produktübersicht</h1>
@@ -81,12 +77,7 @@
 
 </div>
 <div id="sidebar">
-
   <%@ include file="includes/cart-sidebar.inc.jsp" %>
-
-
 </div>
 
-
-<%@ include file="includes/footer.inc.jsp" %>
-
+  <%@ include file="includes/footer.inc.jsp" %>

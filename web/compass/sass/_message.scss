@@ -1,0 +1,17 @@
+.message {
+  border: 5px dashed;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 10px;
+  
+  &.success {
+    background: #4ce600;
+    border-color: #329900;
+  }
+  
+  &.error {
+      
+  }
+  
+  
+}

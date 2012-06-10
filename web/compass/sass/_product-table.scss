@@ -1,0 +1,46 @@
+// Product table
+.products {
+  border-collapse: collapse;
+  width: 100%;
+  
+  &.negative {
+    color: #FFF;
+  }
+  
+  
+  
+  
+  td { padding: 10px; }
+  
+  th { border-bottom: 2px dashed $red; }
+  &.negative th { border-bottom: 2px dashed $red-dark; }
+  
+  .even td { background: $grey; }
+  &.negative .even td { background: $red-dark; }
+  
+  .overall {
+    font-weight: 600;
+    text-align: right;
+    td { border-top: 2px solid $red;}
+    
+  }
+  
+  &.negative .overall {
+    td { border-top: 2px solid #FFF;}
+  }
+  
+  
+  .pid,
+  .price { text-align: right; }
+  
+  .add-to-cart { text-align: center; }
+  
+  .to-cart {
+    @include sprite-icons(to-cart, $hover: true);
+    display: inline-block;
+    height: image-height(sprite-file($icons, to-cart));
+    text-indent: -9999em;
+    width: image-width(sprite-file($icons, to-cart));
+  }
+}
+

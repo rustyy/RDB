@@ -27,7 +27,7 @@
     Statement st = con.createStatement();
 
     // Show shopping-cart.
-    out.write("<table class=\"products\">");
+    out.write("<table class=\"products negative\">");
     out.write("<thead>");
     out.write("<tr>");
     out.write("<th>Name</th>");
@@ -39,12 +39,23 @@
 
     int finalPrice = 0;
     Enumeration names = session.getAttributeNames();
+    int i = 1;
     while (names.hasMoreElements()) {
+      // Zebra is used to specify whether a data set is even or odd.
+      String zebra;
+      if (i % 2 == 0) {
+        zebra = "even";
+      } else {
+        zebra = "odd";
+      }
+
+      i++;
+
       String key = (String) names.nextElement();
       Object value = session.getAttribute(key);
       ResultSet rs = st.executeQuery("select name, price from product WHERE product_id='" + key + "'");
 
-      out.write("<tr class=\"\">");
+      out.write("<tr class=\"" + zebra + "\">");
 
       while (rs.next()) {
         int pPriceOverall = 0;
@@ -60,7 +71,7 @@
       out.write("<td>" + value + "</td>");
       out.write("</tr>");
     }
-    out.write("<tr>");
+    out.write("<tr class=\"overall\">");
     out.write("<td>Gesamtsumme</td>");
     out.write("<td>" + finalPrice + "</td>");
     out.write("<td></td>");
@@ -74,7 +85,7 @@
   } catch (Exception e) {
     out.println("! MYSQL Exception: " + e.getMessage());
   }
-  out.write("<a href=\"order.jsp\">Bestellen</a>");
+  out.write("<a class=\"go-further negative\" href=\"order.jsp\">Bestellen</a>");
   out.write("</div>");
 
 %>

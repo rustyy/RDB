@@ -1,0 +1,55 @@
+h1,
+h2,
+h3,
+h4 {
+  background: $red;
+  color: #FFF;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 0 20px 0;
+}
+
+h1 { font-size: 24px; }
+
+h2 { font-size: 18px; }
+
+// form elements.
+input[type=text] {
+  border: 2px dashed $red;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 10px;
+  
+  &:focus {
+    background: #f2f2f2;
+  }
+}
+
+input[type=submit] {
+  background: $red-dark;
+  border: 0;
+  color: #FFF;
+  font-weight: 600;
+  padding: 10px;
+}
+
+
+// misc
+.go-further {
+  @include sprite-icons(link, $hover: false, $offset-x: 0, $offset-y: 2);
+  color: $red;
+  padding-left: image-width(sprite-file($icons, link))+5;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  &.negative{
+    @include sprite-icons(link-neg, $hover: false, $offset-x: 0, $offset-y: 2);
+    color: #FFF;
+  }
+  
+  
+  
+}

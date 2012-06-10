@@ -43,7 +43,7 @@
         out.write("<table class=\"products\">");
         out.write("<thead>");
         out.write("<tr>");
-        out.write("<th>Artikelnummer</th>");
+        out.write("<th>Art.#</th>");
         out.write("<th>Name</th>");
         out.write("<th>Hersteller</th>");
         out.write("<th>Preis</th>");
@@ -54,12 +54,24 @@
 
         int finalPrice = 0;
         Enumeration names = session.getAttributeNames();
+        int i = 1;
         while (names.hasMoreElements()) {
           String key = (String) names.nextElement();
           Object value = session.getAttribute(key);
           ResultSet rs = st.executeQuery("select * from product WHERE product_id='" + key + "'");
 
-          out.write("<tr class=\"\">");
+          // Zebra is used to specify whether a data set is even or odd.
+          String zebra;
+          if (i % 2 == 0) {
+            zebra = "even";
+          } else {
+            zebra = "odd";
+          }
+
+          i++;
+
+
+          out.write("<tr class=\"" + zebra + "\">");
 
           while (rs.next()) {
             int pPriceOverall = 0;
@@ -81,7 +93,7 @@
 
           out.write("</tr>");
         }
-        out.write("<tr>");
+        out.write("<tr class=\"overall\">");
         out.write("<td colspan=\"3\">Gesamtsumme</td>");
         out.write("<td>" + finalPrice + "</td>");
         out.write("<td></td>");
@@ -151,7 +163,7 @@
   <% } else {%>
 
   <div class="message success">
-    Vielen Dank für Ihre Besetllung
+    Vielen Dank für Ihre Bestellung.
   </div>
 
   <%
@@ -257,8 +269,5 @@
   <% }%>
 
 </div>
-<div id="sidebar">
-</div>
-
 
 <%@ include file="includes/footer.inc.jsp" %>

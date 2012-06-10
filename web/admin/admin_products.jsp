@@ -42,7 +42,7 @@
             out.write("<table class=\"products\">");
             out.write("<thead>");
             out.write("<tr>");
-            out.write("<th>Artikelnummer</th>");
+            out.write("<th>Art.#</th>");
             out.write("<th>Name</th>");
             out.write("<th>Hersteller</th>");
             out.write("<th>Preis</th>");

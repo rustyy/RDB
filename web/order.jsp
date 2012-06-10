@@ -93,7 +93,7 @@
 
           out.write("</tr>");
         }
-        out.write("<tr>");
+        out.write("<tr class=\"overall\">");
         out.write("<td colspan=\"3\">Gesamtsumme</td>");
         out.write("<td>" + finalPrice + "</td>");
         out.write("<td></td>");
@@ -163,7 +163,7 @@
   <% } else {%>
 
   <div class="message success">
-    Vielen Dank für Ihre Besetllung
+    Vielen Dank für Ihre Bestellung.
   </div>
 
   <%
@@ -269,8 +269,5 @@
   <% }%>
 
 </div>
-<div id="sidebar">
-</div>
-
 
 <%@ include file="includes/footer.inc.jsp" %>

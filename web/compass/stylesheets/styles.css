@@ -1,16 +1,26 @@
-/* line 4, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_base.scss */
+/* line 4, ../sass/_base.scss */
 h1,
 h2,
 h3,
 h4 {
-  font-size: 24px;
   background: #ff38c4;
   color: #FFF;
   display: inline-block;
   padding: 5px 10px;
+  margin: 0 0 20px 0;
 }
 
-/* line 13, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_base.scss */
+/* line 12, ../sass/_base.scss */
+h1 {
+  font-size: 24px;
+}
+
+/* line 14, ../sass/_base.scss */
+h2 {
+  font-size: 18px;
+}
+
+/* line 17, ../sass/_base.scss */
 input[type=text] {
   border: 2px dashed #ff38c4;
   font-family: 'Open Sans', sans-serif;
@@ -18,24 +28,38 @@ input[type=text] {
   font-weight: 300;
   padding: 10px;
 }
-/* line 20, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_base.scss */
+/* line 24, ../sass/_base.scss */
 input[type=text]:focus {
   background: #f2f2f2;
 }
 
-/* line 27, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_base.scss */
+/* line 29, ../sass/_base.scss */
+input[type=submit] {
+  background: #a80077;
+  border: 0;
+  color: #FFF;
+  font-weight: 600;
+  padding: 10px;
+}
+
+/* line 39, ../sass/_base.scss */
 .go-further {
-  background: url('../images/fixed-s48e63ce36a.png') 0 -118px no-repeat;
+  background: url('../images/fixed-s8d6fa5575f.png') 0 -118px no-repeat;
   color: #ff38c4;
   padding-left: 17px;
   text-decoration: none;
 }
-/* line 32, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_base.scss */
+/* line 44, ../sass/_base.scss */
 .go-further:hover {
   text-decoration: underline;
 }
+/* line 48, ../sass/_base.scss */
+.go-further.negative {
+  background: url('../images/fixed-s8d6fa5575f.png') 0 -160px no-repeat;
+  color: #FFF;
+}
 
-/* line 4, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_layout.scss */
+/* line 4, ../sass/_layout.scss */
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
@@ -44,7 +68,7 @@ body {
   padding: 0;
 }
 
-/* line 12, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_layout.scss */
+/* line 12, ../sass/_layout.scss */
 #page {
   background: #FFF;
   margin: 0 auto;
@@ -52,110 +76,145 @@ body {
   width: 960px;
 }
 
-/* line 19, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_layout.scss */
+/* line 19, ../sass/_layout.scss */
 #header {
   margin-bottom: 20px;
 }
 
-/* line 23, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_layout.scss */
+/* line 23, ../sass/_layout.scss */
 #content {
   float: left;
   width: 700px;
 }
 
-/* line 28, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_layout.scss */
+/* line 28, ../sass/_layout.scss */
 #sidebar {
   background: #ff38c4;
   float: right;
-  width: 240px;
+  padding: 10px;
+  width: 220px;
 }
 
-/* line 34, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_layout.scss */
+/* line 35, ../sass/_layout.scss */
 #footer {
   clear: both;
   margin: 20px 0;
   text-align: center;
 }
 
-/* line 4, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_form-order.scss */
+/* line 2, ../sass/_form-order.scss */
+.form-order {
+  overflow: hidden;
+}
+/* line 6, ../sass/_form-order.scss */
 .form-order label,
 .form-order input[type=text] {
   display: inline-block;
 }
-/* line 6, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_form-order.scss */
+/* line 8, ../sass/_form-order.scss */
 .form-order label {
   width: 20%;
 }
-/* line 8, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_form-order.scss */
+/* line 10, ../sass/_form-order.scss */
 .form-order input[type=text] {
   width: 75%;
 }
-/* line 12, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_form-order.scss */
+/* line 14, ../sass/_form-order.scss */
 .form-order div {
+  border-bottom: 1px solid #f2f2f2;
   margin-bottom: 20px;
   overflow: hidden;
+  padding-bottom: 20px;
+}
+/* line 21, ../sass/_form-order.scss */
+.form-order input[type=submit] {
+  float: right;
+}
+/* line 24, ../sass/_form-order.scss */
+.form-order label.error {
+  background: #ff0000;
+  border: 5px dashed #c70000;
+  color: #FFF;
+  float: right;
+  font-weight: 600;
+  margin: 20px 0;
+  padding: 10px;
+  width: 75%;
 }
 
-/* line 1, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_message.scss */
+/* line 1, ../sass/_message.scss */
 .message {
   border: 5px dashed;
   font-weight: 600;
   margin-bottom: 20px;
   padding: 10px;
 }
-/* line 7, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_message.scss */
+/* line 7, ../sass/_message.scss */
 .message.success {
   background: #4ce600;
   border-color: #329900;
 }
 
-/* line 2, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 2, ../sass/_product-table.scss */
 .products {
   border-collapse: collapse;
   width: 100%;
 }
-/* line 6, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 6, ../sass/_product-table.scss */
 .products.negative {
   color: #FFF;
 }
-/* line 13, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 13, ../sass/_product-table.scss */
 .products td {
   padding: 10px;
 }
-/* line 15, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 15, ../sass/_product-table.scss */
 .products th {
   border-bottom: 2px dashed #ff38c4;
 }
-/* line 16, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 16, ../sass/_product-table.scss */
 .products.negative th {
   border-bottom: 2px dashed #a80077;
 }
-/* line 18, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 18, ../sass/_product-table.scss */
 .products .even td {
   background: #f2f2f2;
 }
-/* line 19, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 19, ../sass/_product-table.scss */
 .products.negative .even td {
   background: #a80077;
 }
-/* line 22, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 21, ../sass/_product-table.scss */
+.products .overall {
+  font-weight: 600;
+  text-align: right;
+}
+/* line 24, ../sass/_product-table.scss */
+.products .overall td {
+  border-top: 2px solid #ff38c4;
+}
+/* line 29, ../sass/_product-table.scss */
+.products.negative .overall td {
+  border-top: 2px solid #FFF;
+}
+/* line 34, ../sass/_product-table.scss */
 .products .pid,
 .products .price {
   text-align: right;
 }
-/* line 24, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 36, ../sass/_product-table.scss */
 .products .add-to-cart {
   text-align: center;
 }
-/* line 26, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_product-table.scss */
+/* line 38, ../sass/_product-table.scss */
 .products .to-cart {
-  background: url('../images/fixed-s48e63ce36a.png') 0 -60px no-repeat;
+  background: url('../images/fixed-s8d6fa5575f.png') 0 -60px no-repeat;
   display: inline-block;
   height: 30px;
   text-indent: -9999em;
   width: 30px;
 }
-/* line 17, /Volumes/Daten/Dokumente/UNI/RDB/rdbshop/web/compass/sass/_config.scss */
+/* line 17, ../sass/_config.scss */
 .products .to-cart:hover {
   background-position: 0 0;
 }

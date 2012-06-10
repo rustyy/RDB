@@ -100,7 +100,7 @@
         out.write("<td>" + value + "</td>");
         out.write("</tr>");
       }
-      out.write("<tr>");
+      out.write("<tr class=\"overall\">");
       out.write("<td colspan=\"3\">Gesamtsumme</td>");
       out.write("<td>" + finalPrice + "</td>");
       out.write("<td></td>");
@@ -122,9 +122,5 @@
 
 
 </div>
-<div id="sidebar">
-
-</div>
-
 
 <%@ include file="includes/footer.inc.jsp" %>

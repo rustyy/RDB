@@ -71,7 +71,7 @@
       out.write("<td>" + value + "</td>");
       out.write("</tr>");
     }
-    out.write("<tr>");
+    out.write("<tr class=\"overall\">");
     out.write("<td>Gesamtsumme</td>");
     out.write("<td>" + finalPrice + "</td>");
     out.write("<td></td>");
@@ -85,7 +85,7 @@
   } catch (Exception e) {
     out.println("! MYSQL Exception: " + e.getMessage());
   }
-  out.write("<a class=\"go-further\" href=\"order.jsp\">Bestellen</a>");
+  out.write("<a class=\"go-further negative\" href=\"order.jsp\">Bestellen</a>");
   out.write("</div>");
 
 %>

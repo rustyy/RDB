@@ -1,5 +1,7 @@
 // Order-form.
 .form-order {
+  overflow: hidden;
+  
   label,
   input[type=text] { display: inline-block; }
   
@@ -10,7 +12,23 @@
   }
   
   div {
+    border-bottom: 1px solid $grey;
     margin-bottom: 20px;
     overflow: hidden;
+    padding-bottom: 20px;
+  }
+  
+  input[type=submit] { float: right; }
+  
+  
+  label.error {
+    background: #ff0000;
+    border: 5px dashed #c70000;
+    color: #FFF;
+    float: right;
+    font-weight: 600;
+    margin: 20px 0;
+    padding: 10px;
+    width: 75%;
   }
 }

@@ -18,6 +18,18 @@
   .even td { background: $grey; }
   &.negative .even td { background: $red-dark; }
   
+  .overall {
+    font-weight: 600;
+    text-align: right;
+    td { border-top: 2px solid $red;}
+    
+  }
+  
+  &.negative .overall {
+    td { border-top: 2px solid #FFF;}
+  }
+  
+  
   .pid,
   .price { text-align: right; }
   

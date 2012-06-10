@@ -233,3 +233,18 @@ body {
 .products .to-cart:hover {
   background-position: 0 0;
 }
+/* line 39, ../sass/_product-table.scss */
+.products tr:hover td {
+  background: #ddd !important;
+  color: #333333;
+}
+
+/* line 2, ../sass/_admin.scss */
+.admin-navigation li {
+  display: block;
+}
+
+/* line 1, ../sass/_shopping-cart.scss */
+#sidebar .shopping-cart {
+  color: #FFF;
+}

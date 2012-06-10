@@ -29,17 +29,20 @@
       %>
       <div id="header"></div>
       <div id="content">
+        <h1>Admin Area</h1>
+        <br>
         <h2>Navigation</h2>
-        <ul>
-          <li><a href="admin_add_category.jsp">Kategorie hinzufügen</a></li>
-          <li><a href="admin_addmanufactura.jsp">Hersteller hinzufügen</a></li>
-          <li><a href="admin_add_payment.jsp">Zahlungsart hinzufügen</a></li>
-          <li><a href="admin_add_product.jsp">Produkt hinzufügen</a></li>
-          <li><a href="categories.jsp">Kategorie auflisten</a></li>
-          <li><a href="manufactura.jsp">Hersteller auflisten</a></li>
-          <li><a href="payments.jsp">Payments auflisten</a></li>
-          <li><a href="products.jsp">Produkte auflisten</a></li>
+        <ul class="admin-navigation">
+          <li><a href="admin_add_category.jsp" class="go-further">Kategorie hinzufügen</a></li>
+          <li><a href="admin_add_manufactura.jsp" class="go-further">Hersteller hinzufügen</a></li>
+          <li><a href="admin_add_payment.jsp" class="go-further">Zahlungsart hinzufügen</a></li>
+          <li><a href="admin_add_product.jsp" class="go-further">Produkt hinzufügen</a></li>
+          <li><a href="admin_categories.jsp" class="go-further">Kategorie auflisten</a></li>
+          <li><a href="admin_manufactura.jsp" class="go-further">Hersteller auflisten</a></li>
+          <li><a href="admin_payments.jsp" class="go-further">Payments auflisten</a></li>
+          <li><a href="admin_products.jsp" class="go-further">Produkte auflisten</a></li>
         </ul>
+
       </div>
       <div id="sidebar">
         <h2>Produkte</h2>
@@ -87,7 +90,7 @@
             }
             out.write("</tbody>");
             out.write("</table>"); // /END Producttable.
-            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"\" href=\"admin_products.jsp\">Zur Produktansicht</a>");
+            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"go-further negative\" href=\"admin_products.jsp\">Zur Produktansicht</a>");
             st.close();
             con.close();
           } catch (Exception e) {
@@ -136,14 +139,14 @@
             }
             out.write("</tbody>");
             out.write("</table>"); // /END Producttable.
-            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"\" href=\"admin_categories.jsp\">Zur Kategorie-Ansicht</a>");
+            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"go-further negative\" href=\"admin_categories.jsp\">Zur Kategorie-Ansicht</a>");
             st.close();
             con.close();
           } catch (Exception e) {
             out.println("! MYSQL Exception: " + e.getMessage());
           }
         %>
-        
+
         <h2>Hersteller</h2>
         <%
           try {
@@ -186,14 +189,14 @@
             }
             out.write("</tbody>");
             out.write("</table>"); // /END Producttable.
-            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"\" href=\"admin_manufactura.jsp\">Zur Hersteller-Ansicht</a>");
+            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"go-further negative\" href=\"admin_manufactura.jsp\">Zur Hersteller-Ansicht</a>");
             st.close();
             con.close();
           } catch (Exception e) {
             out.println("! MYSQL Exception: " + e.getMessage());
           }
         %>
-        
+
         <h2>Zahlungsmethoden</h2>
         <%
           try {
@@ -233,7 +236,7 @@
             }
             out.write("</tbody>");
             out.write("</table>"); // /END Producttable.
-            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"\" href=\"admin_payments.jsp\">Zur Zahlungsmethoden-Ansicht</a>");
+            out.write("<a title=\"Zum Warenkorb hinzufügen\" class=\"go-further negative\" href=\"admin_payments.jsp\">Zur Zahlungsmethoden-Ansicht</a>");
             st.close();
             con.close();
           } catch (Exception e) {

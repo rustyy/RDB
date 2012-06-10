@@ -22,14 +22,14 @@
         // Get the database driver.
         try {
           Class.forName("org.gjt.mm.mysql.Driver");
-          out.println("DB-Treiber da!");
+          //out.println("DB-Treiber da!");
         } catch (ClassNotFoundException e) {
-          out.println("DB-Treiber nicht da!");
+          //out.println("DB-Treiber nicht da!");
         }
       %>
       <div id="header"></div>
       <div id="content">
-
+        <h1>Admin Area - Add Manufactura</h1>
         <form action="admin_add_manufactura.jsp" method="get">
           <p>Name*</p>
           <input type="text" name="name">
@@ -67,6 +67,7 @@
 
       </div>
       <div id="sidebar">
+        <%@ include file="includes/admin_sidebar.inc.jsp" %>
         <%
           try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");

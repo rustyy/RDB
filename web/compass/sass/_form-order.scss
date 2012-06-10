@@ -1,0 +1,16 @@
+// Order-form.
+.form-order {
+  label,
+  input[type=text] { display: inline-block; }
+  
+  label { width: 20%; }
+  
+  input[type=text] {
+    width: 75%;
+  }
+  
+  div {
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+}

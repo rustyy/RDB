@@ -32,7 +32,7 @@
       out.write("<table class=\"products\">");
       out.write("<thead>");
       out.write("<tr>");
-      out.write("<th>Artikelnummer</th>");
+      out.write("<th>Art.#</th>");
       out.write("<th>Name</th>");
       out.write("<th>Hersteller</th>");
       out.write("<th>Preis</th>");
@@ -51,6 +51,9 @@
         } else {
           zebra = "odd";
         }
+        
+        i++;
+        
         // Product attributes.  
         String pName = rs.getString("name");
         String pManufacturer = rs.getString("producer_name");
@@ -64,8 +67,6 @@
         out.write("<td class=\"price\">" + pPrice + "</td>");
         out.write("<td class=\"add-to-cart\"><a title=\"Zum Warenkorb hinzufügen\" class=\"to-cart\" href=\"cart.jsp?pid=" + pId + "\">In den Warenkorb</a></td>");
         out.write("</tr>");
-
-        i++;
       }
       out.write("</tbody>");
       out.write("</table>"); // /END Producttable.

@@ -11,6 +11,7 @@
 <%@ include file="includes/header.inc.jsp" %>
 
 <div id="content">
+  <h1>Warenkorb</h1>
 
   <%
     // Get the database driver.
@@ -51,7 +52,7 @@
       out.write("<table class=\"products\">");
       out.write("<thead>");
       out.write("<tr>");
-      out.write("<th>Artikelnummer</th>");
+      out.write("<th>Art.#</th>");
       out.write("<th>Name</th>");
       out.write("<th>Hersteller</th>");
       out.write("<th>Preis</th>");
@@ -61,13 +62,23 @@
       out.write("<tbody>");
 
       int finalPrice = 0;
+      int i = 1;
       Enumeration names = session.getAttributeNames();
       while (names.hasMoreElements()) {
+        // Zebra is used to specify whether a data set is even or odd.
+        String zebra;
+        if (i % 2 == 0) {
+          zebra = "even";
+        } else {
+          zebra = "odd";
+        }
+        
+        i++;
         String key = (String) names.nextElement();
         Object value = session.getAttribute(key);
         ResultSet rs = st.executeQuery("select * from product WHERE product_id='" + key + "'");
 
-        out.write("<tr class=\"\">");
+        out.write("<tr class=\"" + zebra + "\">");
 
         while (rs.next()) {
           int pPriceOverall = 0;
@@ -103,8 +114,8 @@
     } catch (Exception e) {
       out.println("! MYSQL Exception: " + e.getMessage());
     }
-    out.write("<a href=\"index.jsp\">Zurück zur Produktliste</a>");
-    out.write("<a href=\"order.jsp\">Bestellen</a>");
+    out.write("<a class=\"go-further\" href=\"index.jsp\">Zurück zur Produktliste</a><br />");
+    out.write("<a class=\"go-further\" href=\"order.jsp\">Bestellen</a>");
     out.write("</div>");
 
   %>

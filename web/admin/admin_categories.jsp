@@ -10,12 +10,15 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Produktübersicht</title>
-    <link rel="stylesheet" type="text/css" href="compass/stylesheets/styles.css" />
+    <title>RDBSHOP</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="../compass/stylesheets/styles.css" />
   </head>
   <body>
-
     <div id="page">
+      <div id="header">
+        <a href="admin.jsp"><img src="../files/logo.png" /></a>
+      </div>
       <%
         // Get the database driver.
         try {
@@ -29,7 +32,7 @@
       <div id="content">
         <%
           try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
             Statement st = con.createStatement();
 
             // Get all products from the database.
@@ -88,7 +91,7 @@
           if (cname != null) {
 
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "root");
               Statement st = con.createStatement();
               String queryString = "delete from category where category_name = '" + cname + "';";
               updateQuery = st.executeUpdate(queryString);

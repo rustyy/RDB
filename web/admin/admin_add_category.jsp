@@ -9,12 +9,15 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JSP Page</title>
-    <link rel="stylesheet" type="text/css" href="compass/stylesheets/styles.css" />
+    <title>RDBSHOP</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="../compass/stylesheets/styles.css" />
   </head>
   <body>
-
     <div id="page">
+      <div id="header">
+        <a href="admin.jsp"><img src="../files/logo.png" /></a>
+      </div>
       <%
         // Get the database driver.
         try {

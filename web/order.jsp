@@ -1,5 +1,5 @@
 <%-- 
-    @Document   : cart-sidebar.inc
+    @Document   : order
     @Author     : Felix Hofmann - 2022833
     @file       : This file creates the order page.
 --%>

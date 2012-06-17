@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="compass/stylesheets/styles.css" />
     <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="compass/js/commerce.js" type="text/javascript"></script>
     <script>
       $(document).ready(function(){
         // Form validation for order.
@@ -49,6 +50,6 @@
   <body>
     <div id="stripe"></div>
     <div id="page">
-      <div id="header">
+      <div id="header" class="">
         <a href="index.jsp"><img src="files/logo.png" /></a>
       </div>

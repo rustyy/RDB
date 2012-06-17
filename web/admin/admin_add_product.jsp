@@ -38,7 +38,7 @@
           <p>Hersteller*</p>
           <%
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
               Statement st = con.createStatement();
               String listCategory = "select producer_name from manufactura";
               ResultSet rset = st.executeQuery(listCategory);
@@ -62,7 +62,7 @@
           <p>Kategorie*</p>
           <%
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
               Statement st = con.createStatement();
               String listCategory = "select category_name from category";
               ResultSet rset = st.executeQuery(listCategory);
@@ -98,7 +98,7 @@
             int price = Integer.parseInt("" + Sprice + "");
 
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
               Statement st = con.createStatement();
               String queryString = "INSERT INTO product(name, price,producer_name, details, category_name) VALUES (\"" + name + "\"," + price + ",\"" + producer + "\",\"" + details + "\",\"" + category + "\")";
               updateQuery = st.executeUpdate(queryString);
@@ -120,7 +120,7 @@
         <%@ include file="includes/admin_sidebar.inc.jsp" %>
         <%
           try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
             Statement st = con.createStatement();
 
             // Get all products from the database.

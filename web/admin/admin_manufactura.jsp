@@ -33,7 +33,7 @@
         <h1>Admin Area - Manufacturas</h1>
         <%
           try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
             Statement st = con.createStatement();
 
             // Get all products from the database.
@@ -92,7 +92,7 @@
           if (mname != null) {
 
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
               Statement st = con.createStatement();
               String queryString = "delete from manufactura where producer_name = '" + mname + "';";
               updateQuery = st.executeUpdate(queryString);

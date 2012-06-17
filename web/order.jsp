@@ -36,7 +36,7 @@
        * Output Shopping-cart. *****
        */
       try {
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
         Statement st = con.createStatement();
 
         // Show shopping-cart.
@@ -135,7 +135,7 @@
     <div>
       <%
         try {
-          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+          Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
           Statement st = con.createStatement();
 
           ResultSet rs = st.executeQuery("select * from payment");
@@ -176,7 +176,7 @@
       int orderID = 0;
 
       try {
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
         Statement st = con.createStatement();
 
         String sqlQuery1 = "SELECT "

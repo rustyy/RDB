@@ -45,7 +45,7 @@
           if (name != null) {
 
             try {
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
               Statement st = con.createStatement();
               String queryString = "INSERT INTO payment(service) VALUES ('"+name+"')";
               updateQuery = st.executeUpdate(queryString);
@@ -67,7 +67,7 @@
         <%@ include file="includes/admin_sidebar.inc.jsp" %>
         <%
           try {
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dt40", "dt40", "8Cy8");
             Statement st = con.createStatement();
 
             // Get all products from the database.

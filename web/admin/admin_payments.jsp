@@ -10,23 +10,27 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Produktübersicht</title>
-    <link rel="stylesheet" type="text/css" href="compass/stylesheets/styles.css" />
+    <title>RDBSHOP</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="../compass/stylesheets/styles.css" />
   </head>
   <body>
-
     <div id="page">
+      <div id="header">
+        <a href="admin.jsp"><img src="../files/logo.png" /></a>
+      </div>
       <%
         // Get the database driver.
         try {
           Class.forName("org.gjt.mm.mysql.Driver");
-          out.println("DB-Treiber da!");
+          //out.println("DB-Treiber da!");
         } catch (ClassNotFoundException e) {
-          out.println("DB-Treiber nicht da!");
+          //out.println("DB-Treiber nicht da!");
         }
       %>
       <div id="header"></div>
       <div id="content">
+        <h1>Admin Area - Payment-Services</h1>
         <%
           try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/rdbshop", "root", "localhorst");
@@ -103,6 +107,7 @@
         %>
       </div>
       <div id="sidebar">
+        <%@ include file="includes/admin_sidebar.inc.jsp" %>
       </div>
       <div id="footer"></div>
     </div>

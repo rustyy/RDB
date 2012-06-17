@@ -264,6 +264,11 @@ body {
   color: #333333;
 }
 
+/* line 2, ../sass/_admin.scss */
+.admin-navigation li {
+  display: block;
+}
+
 /* line 1, ../sass/_shopping-cart.scss */
 #sidebar .shopping-cart {
   color: #FFF;

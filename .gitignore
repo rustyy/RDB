@@ -3,4 +3,4 @@
 /build/
 /build.xml
 /dist/
-/web/compass/.sass-cache/
+/web/compass/.sass-cache

@@ -12,6 +12,10 @@
     <title>RDBSHOP</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="../compass/stylesheets/styles.css" />
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="compass/js/commerce.js" type="text/javascript"></script>
+    <script src="../compass/js/commerce.js" type="text/javascript"></script>
   </head>
   <body>
     <div id="page">
